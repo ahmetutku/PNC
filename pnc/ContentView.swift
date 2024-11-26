@@ -4,15 +4,26 @@
 //
 //  Created by Ahmet Hamamcioglu on 2.11.2024.
 //
-
 import SwiftUI
 
-import SwiftUI
+// MARK: - ViewModel to Manage Quotes
+class QuotesViewModel: ObservableObject {
+    @Published var quotes: [Quote] = Quote.sampleQuotes // Sample quotes for display
+    @Published var favoriteQuotes: [Quote] = [] // Saved favorite quotes
 
+    func toggleFavorite(_ quote: Quote) {
+        if favoriteQuotes.contains(quote) {
+            favoriteQuotes.removeAll { $0.id == quote.id }
+        } else {
+            favoriteQuotes.append(quote)
+        }
+    }
+}
+
+// MARK: - ContentView
 struct ContentView: View {
-    @State private var quotes: [Quote] = Quote.sampleQuotes // Sample quotes for display
+    @StateObject private var viewModel = QuotesViewModel() // Shared ViewModel
     @State private var isMenuOpen: Bool = false // Toggle for dropdown menu
-    @State private var favoriteQuotes: [Quote] = [] // Saved favorite quotes
 
     var body: some View {
         NavigationView {
@@ -30,9 +41,12 @@ struct ContentView: View {
 
                     // Scrollable Quotes List
                     ScrollView {
-                        ForEach(quotes) { quote in
-                            QuoteRowView(quote: quote, isFavorite: favoriteQuotes.contains(quote)) {
-                                toggleFavorite(quote)
+                        ForEach(viewModel.quotes) { quote in
+                            QuoteRowView(
+                                quote: quote,
+                                isFavorite: viewModel.favoriteQuotes.contains(quote)
+                            ) {
+                                viewModel.toggleFavorite(quote)
                             }
                             .padding()
                         }
@@ -44,7 +58,10 @@ struct ContentView: View {
                 
                 // Dropdown menu
                 if isMenuOpen {
-                    DropdownMenuView(isMenuOpen: $isMenuOpen, favoriteQuotes: $favoriteQuotes)
+                    DropdownMenuView(
+                        isMenuOpen: $isMenuOpen,
+                        viewModel: viewModel
+                    )
                 }
             }
             .navigationBarItems(leading: menuButton)
@@ -64,21 +81,12 @@ struct ContentView: View {
                 .foregroundColor(.accentColor)
         }
     }
-
-    // Function to toggle favorite status
-    private func toggleFavorite(_ quote: Quote) {
-        if favoriteQuotes.contains(quote) {
-            favoriteQuotes.removeAll { $0.id == quote.id }
-        } else {
-            favoriteQuotes.append(quote)
-        }
-    }
 }
 
 // MARK: - Dropdown Menu View
 struct DropdownMenuView: View {
     @Binding var isMenuOpen: Bool
-    @Binding var favoriteQuotes: [Quote]
+    @ObservedObject var viewModel: QuotesViewModel
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -95,7 +103,7 @@ struct DropdownMenuView: View {
             VStack(alignment: .leading, spacing: 10) {
                 menuItem(icon: "magnifyingglass", title: "Search")
                 menuItem(icon: "book", title: "Books")
-                NavigationLink(destination: FavoritesView(favoriteQuotes: favoriteQuotes)) {
+                NavigationLink(destination: FavoritesView(viewModel: viewModel)) {
                     menuItem(icon: "star.fill", title: "Favorites")
                 }
                 menuItem(icon: "flame", title: "Popular")
@@ -121,7 +129,7 @@ struct DropdownMenuView: View {
 
 // MARK: - Favorites View
 struct FavoritesView: View {
-    var favoriteQuotes: [Quote]
+    @ObservedObject var viewModel: QuotesViewModel
 
     var body: some View {
         VStack(spacing: 20) {
@@ -131,9 +139,11 @@ struct FavoritesView: View {
                 .padding(.top)
 
             ScrollView {
-                ForEach(favoriteQuotes) { quote in
-                    QuoteRowView(quote: quote, isFavorite: true, toggleFavorite: {})
-                        .padding()
+                ForEach(viewModel.favoriteQuotes) { quote in
+                    QuoteRowView(quote: quote, isFavorite: true) {
+                        viewModel.toggleFavorite(quote)
+                    }
+                    .padding()
                 }
             }
 
@@ -144,9 +154,6 @@ struct FavoritesView: View {
     }
 }
 
-// MARK: - Quote Model and QuoteRowView remain unchanged
-
-
 // MARK: - Quote Model and Sample Data
 struct Quote: Identifiable, Equatable {
     let id = UUID()
@@ -156,12 +163,7 @@ struct Quote: Identifiable, Equatable {
     static let sampleQuotes: [Quote] = [
         Quote(text: "The only limit to our realization of tomorrow is our doubts of today.", author: "Franklin D. Roosevelt"),
         Quote(text: "Success is not final, failure is not fatal: It is the courage to continue that counts.", author: "Winston Churchill"),
-        Quote(text: "Do not wait to strike till the iron is hot; but make it hot by striking.", author: "William Butler Yeats"),
-        Quote(text: "Do not wait to strike till the iron is hot; but make it hot by striking.", author: "William Butler Yeats"),
-        Quote(text: "Do not wait to strike till the iron is hot; but make it hot by striking.", author: "William Butler Yeats"),
-        Quote(text: "Do not wait to strike till the iron is hot; but make it hot by striking.", author: "William Butler Yeats"),
         Quote(text: "Do not wait to strike till the iron is hot; but make it hot by striking.", author: "William Butler Yeats")
-        // Add more quotes if needed
     ]
 }
 
