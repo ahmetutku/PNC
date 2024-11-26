@@ -7,11 +7,12 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct ContentView: View {
-    // Placeholder for the quotes list
     @State private var quotes: [Quote] = Quote.sampleQuotes // Sample quotes for display
     @State private var isMenuOpen: Bool = false // Toggle for dropdown menu
-    @State private var favoriteQuotes: [Quote] = []
+    @State private var favoriteQuotes: [Quote] = [] // Saved favorite quotes
 
     var body: some View {
         NavigationView {
@@ -43,7 +44,7 @@ struct ContentView: View {
                 
                 // Dropdown menu
                 if isMenuOpen {
-                    DropdownMenuView(isMenuOpen: $isMenuOpen)
+                    DropdownMenuView(isMenuOpen: $isMenuOpen, favoriteQuotes: $favoriteQuotes)
                 }
             }
             .navigationBarItems(leading: menuButton)
@@ -73,6 +74,78 @@ struct ContentView: View {
         }
     }
 }
+
+// MARK: - Dropdown Menu View
+struct DropdownMenuView: View {
+    @Binding var isMenuOpen: Bool
+    @Binding var favoriteQuotes: [Quote]
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Spacer()
+                Button(action: { isMenuOpen = false }) {
+                    Image(systemName: "xmark")
+                        .foregroundColor(.gray)
+                        .padding(.trailing)
+                }
+            }
+            .padding(.top)
+
+            VStack(alignment: .leading, spacing: 10) {
+                menuItem(icon: "magnifyingglass", title: "Search")
+                menuItem(icon: "book", title: "Books")
+                NavigationLink(destination: FavoritesView(favoriteQuotes: favoriteQuotes)) {
+                    menuItem(icon: "star.fill", title: "Favorites")
+                }
+                menuItem(icon: "flame", title: "Popular")
+            }
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
+            .padding()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .background(Color.black.opacity(0.25).edgesIgnoringSafeArea(.all))
+    }
+
+    private func menuItem(icon: String, title: String) -> some View {
+        HStack {
+            Image(systemName: icon)
+                .foregroundColor(.accentColor)
+            Text(title)
+                .foregroundColor(.primary)
+        }
+        .padding(.vertical, 5)
+    }
+}
+
+// MARK: - Favorites View
+struct FavoritesView: View {
+    var favoriteQuotes: [Quote]
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Favorite Quotes")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .padding(.top)
+
+            ScrollView {
+                ForEach(favoriteQuotes) { quote in
+                    QuoteRowView(quote: quote, isFavorite: true, toggleFavorite: {})
+                        .padding()
+                }
+            }
+
+            Spacer()
+        }
+        .padding()
+        .background(Color("beigeColor").ignoresSafeArea())
+    }
+}
+
+// MARK: - Quote Model and QuoteRowView remain unchanged
+
 
 // MARK: - Quote Model and Sample Data
 struct Quote: Identifiable, Equatable {
@@ -116,47 +189,6 @@ struct QuoteRowView: View {
         .padding()
         .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
         .shadow(radius: 2)
-    }
-}
-
-// MARK: - Dropdown Menu View
-struct DropdownMenuView: View {
-    @Binding var isMenuOpen: Bool
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Spacer()
-                Button(action: { isMenuOpen = false }) {
-                    Image(systemName: "xmark")
-                        .foregroundColor(.gray)
-                        .padding(.trailing)
-                }
-            }
-            .padding(.top)
-
-            VStack(alignment: .leading, spacing: 10) {
-                menuItem(icon: "magnifyingglass", title: "Search")
-                menuItem(icon: "book", title: "Books")
-                menuItem(icon: "star.fill", title: "Favorites")
-                menuItem(icon: "flame", title: "Popular")
-            }
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
-            .padding()
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .background(Color.black.opacity(0.25).edgesIgnoringSafeArea(.all))
-    }
-
-    private func menuItem(icon: String, title: String) -> some View {
-        HStack {
-            Image(systemName: icon)
-                .foregroundColor(.accentColor)
-            Text(title)
-                .foregroundColor(.primary)
-        }
-        .padding(.vertical, 5)
     }
 }
 
