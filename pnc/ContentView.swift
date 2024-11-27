@@ -31,7 +31,8 @@ struct ContentView: View {
                 Color("beigeColor") // Add this color to assets for beige background
                     .ignoresSafeArea()
 
-                VStack(spacing: 20) {
+                VStack(spacing: 1) {
+                    ScrollView {
                     // App Title
                     Text("PNC")
                         .font(.largeTitle)
@@ -40,7 +41,7 @@ struct ContentView: View {
                         .padding(.top)
 
                     // Scrollable Quotes List
-                    ScrollView {
+                    
                         ForEach(viewModel.quotes) { quote in
                             QuoteRowView(
                                 quote: quote,
@@ -163,6 +164,9 @@ struct Quote: Identifiable, Equatable {
     static let sampleQuotes: [Quote] = [
         Quote(text: "The only limit to our realization of tomorrow is our doubts of today.", author: "Franklin D. Roosevelt"),
         Quote(text: "Success is not final, failure is not fatal: It is the courage to continue that counts.", author: "Winston Churchill"),
+        Quote(text: "Do not wait to strike till the iron is hot; but make it hot by striking.", author: "William Butler Yeats"),
+        Quote(text: "Do not wait to strike till the iron is hot; but make it hot by striking.", author: "William Butler Yeats"),
+        Quote(text: "Do not wait to strike till the iron is hot; but make it hot by striking.", author: "William Butler Yeats"),
         Quote(text: "Do not wait to strike till the iron is hot; but make it hot by striking.", author: "William Butler Yeats")
     ]
 }
