@@ -1,0 +1,422 @@
+[
+    {
+        "title": "The Power of Now",
+        "author": "Eckhart Tolle",
+        "year": 1997,
+        "description": "A guide to spiritual enlightenment, focusing on living in the present moment."
+      },
+      {
+        "title": "Man's Search for Meaning",
+        "author": "Viktor E. Frankl",
+        "year": 1946,
+        "description": "Explores finding purpose in life, based on the author's experiences in Nazi concentration camps."
+      },
+      {
+        "title": "Atomic Habits",
+        "author": "James Clear",
+        "year": 2018,
+        "description": "A practical guide to building good habits and breaking bad ones."
+      },
+      {
+        "title": "Meditations",
+        "author": "Marcus Aurelius",
+        "year": "circa 180 AD",
+        "description": "A series of personal writings by the Roman Emperor on Stoic philosophy and self-discipline."
+      },
+      {
+        "title": "Thinking, Fast and Slow",
+        "author": "Daniel Kahneman",
+        "year": 2011,
+        "description": "Examines the dual systems of thought that drive our decisions and behavior."
+      },
+      {
+        "title": "The 7 Habits of Highly Effective People",
+        "author": "Stephen R. Covey",
+        "year": 1989,
+        "description": "A framework for personal and professional effectiveness through principle-centered living."
+      },
+      {
+        "title": "How to Win Friends and Influence People",
+        "author": "Dale Carnegie",
+        "year": 1936,
+        "description": "A classic guide to improving interpersonal relationships and communication skills."
+      },
+      {
+        "title": "The Art of War",
+        "author": "Sun Tzu",
+        "year": "5th century BC",
+        "description": "Ancient Chinese military treatise that applies to strategy, leadership, and life."
+      },
+      {
+        "title": "The Four Agreements",
+        "author": "Don Miguel Ruiz",
+        "year": 1997,
+        "description": "A practical guide to personal freedom based on Toltec wisdom."
+      },
+      {
+        "title": "Daring Greatly",
+        "author": "Brené Brown",
+        "year": 2012,
+        "description": "Explores how embracing vulnerability can transform the way we live, love, and lead."
+      },
+      {
+        "title": "Siddhartha",
+        "author": "Hermann Hesse",
+        "year": 1922,
+        "description": "A novel about a man's spiritual journey toward enlightenment in ancient India."
+      },
+      {
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "year": 1988,
+        "description": "A philosophical tale about pursuing one's dreams and destiny."
+      },
+      {
+        "title": "Awaken the Giant Within",
+        "author": "Tony Robbins",
+        "year": 1991,
+        "description": "Strategies for taking control of your mental, emotional, physical, and financial destiny."
+      },
+      {
+        "title": "The Subtle Art of Not Giving a F*ck",
+        "author": "Mark Manson",
+        "year": 2016,
+        "description": "A counterintuitive approach to living a good life by embracing limitations and challenges."
+      },
+      {
+        "title": "Beyond Good and Evil",
+        "author": "Friedrich Nietzsche",
+        "year": 1886,
+        "description": "A philosophical work that critiques traditional morality and explores the will to power."
+      }
+  {
+    "title": "The Untethered Soul",
+    "author": "Michael A. Singer",
+    "year": 2007,
+    "description": "An exploration of inner peace and freedom through mindfulness and self-awareness."
+  },
+  {
+    "title": "Start with Why",
+    "author": "Simon Sinek",
+    "year": 2009,
+    "description": "Explores the importance of finding your 'why' to inspire others and yourself."
+  },
+  {
+    "title": "The Bhagavad Gita",
+    "author": "Unknown (traditionally attributed to Vyasa)",
+    "year": "circa 5th-2nd century BCE",
+    "description": "A spiritual and philosophical discourse between Prince Arjuna and Krishna."
+  },
+  {
+    "title": "Flow: The Psychology of Optimal Experience",
+    "author": "Mihaly Csikszentmihalyi",
+    "year": 1990,
+    "description": "Examines the concept of 'flow,' a state of peak performance and immersion."
+  },
+  {
+    "title": "Quiet: The Power of Introverts in a World That Can't Stop Talking",
+    "author": "Susan Cain",
+    "year": 2012,
+    "description": "Highlights the strengths of introverts and their contributions to society."
+  },
+  {
+    "title": "Discipline Equals Freedom",
+    "author": "Jocko Willink",
+    "year": 2017,
+    "description": "A straightforward guide to achieving goals through discipline and focus."
+  },
+  {
+    "title": "Ego is the Enemy",
+    "author": "Ryan Holiday",
+    "year": 2016,
+    "description": "Examines how ego can hinder success and ways to overcome it."
+  },
+  {
+    "title": "The Road Less Traveled",
+    "author": "M. Scott Peck",
+    "year": 1978,
+    "description": "Combines psychology and spirituality to explore personal growth and love."
+  },
+  {
+    "title": "Meditations on First Philosophy",
+    "author": "René Descartes",
+    "year": 1641,
+    "description": "A foundational philosophical work examining existence and the nature of knowledge."
+  },
+  {
+    "title": "12 Rules for Life: An Antidote to Chaos",
+    "author": "Jordan B. Peterson",
+    "year": 2018,
+    "description": "A practical guide to living a meaningful and ordered life."
+  },
+  {
+    "title": "You Can Heal Your Life",
+    "author": "Louise Hay",
+    "year": 1984,
+    "description": "Focuses on the connection between the mind and body in healing and self-love."
+  },
+  {
+    "title": "Being and Nothingness",
+    "author": "Jean-Paul Sartre",
+    "year": 1943,
+    "description": "A cornerstone of existentialist philosophy exploring freedom and human existence."
+  },
+  {
+    "title": "Grit: The Power of Passion and Perseverance",
+    "author": "Angela Duckworth",
+    "year": 2016,
+    "description": "Examines how persistence and passion can lead to long-term success."
+  },
+  {
+    "title": "Can't Hurt Me",
+    "author": "David Goggins",
+    "year": 2018,
+    "description": "A memoir and motivational guide about overcoming mental and physical challenges."
+  },
+  {
+    "title": "The Republic",
+    "author": "Plato",
+    "year": "circa 380 BCE",
+    "description": "A philosophical dialogue on justice, politics, and the ideal society."
+  },
+  {
+    "title": "Phenomenology of Spirit",
+    "author": "Georg Wilhelm Friedrich Hegel",
+    "year": 1807,
+    "description": "Explores consciousness, history, and the development of self-awareness."
+  },
+  {
+    "title": "The Courage to Be Disliked",
+    "author": "Ichiro Kishimi and Fumitake Koga",
+    "year": 2013,
+    "description": "A dialogue-based exploration of Adlerian psychology and personal freedom."
+  },
+  {
+    "title": "Daring Greatly",
+    "author": "Brené Brown",
+    "year": 2012,
+    "description": "Encourages embracing vulnerability as a path to connection and creativity."
+  },
+  {
+    "title": "Mindset: The New Psychology of Success",
+    "author": "Carol S. Dweck",
+    "year": 2006,
+    "description": "Explores the concept of growth versus fixed mindsets and their impact on success."
+  },
+  {
+    "title": "The Tao Te Ching",
+    "author": "Laozi",
+    "year": "circa 4th century BCE",
+    "description": "A foundational Taoist text offering wisdom on harmony and simplicity."
+  },
+  {
+    "title": "Walden",
+    "author": "Henry David Thoreau",
+    "year": 1854,
+    "description": "Reflections on simple living in natural surroundings."
+  },
+  {
+    "title": "Sophie's World",
+    "author": "Jostein Gaarder",
+    "year": 1991,
+    "description": "A novel introducing the history of Western philosophy through a mystery story."
+  },
+  {
+    "title": "On the Shortness of Life",
+    "author": "Seneca",
+    "year": "circa 49 CE",
+    "description": "A Stoic essay on valuing and making the most of one's time."
+  },
+  {
+    "title": "Letters from a Stoic",
+    "author": "Seneca",
+    "year": "circa 65 CE",
+    "description": "A collection of letters offering practical wisdom and Stoic philosophy."
+  },
+  {
+    "title": "Meditations on the Philosophy of Self",
+    "author": "Ralph Waldo Emerson",
+    "year": 1841,
+    "description": "Essays emphasizing self-reliance, individualism, and transcendentalism."
+  }
+    {
+      "title": "The Book of Joy",
+      "author": "Dalai Lama and Desmond Tutu",
+      "year": 2016,
+      "description": "A dialogue about finding lasting happiness in a changing world."
+    },
+    {
+      "title": "The Consolations of Philosophy",
+      "author": "Alain de Botton",
+      "year": 2000,
+      "description": "Explores how philosophy can help with everyday struggles and happiness."
+    },
+    {
+      "title": "A New Earth",
+      "author": "Eckhart Tolle",
+      "year": 2005,
+      "description": "Focuses on transcending ego to create a better world and a more fulfilling life."
+    },
+    {
+      "title": "Drive: The Surprising Truth About What Motivates Us",
+      "author": "Daniel H. Pink",
+      "year": 2009,
+      "description": "Explores the science of motivation and its application in work and life."
+    },
+    {
+      "title": "As a Man Thinketh",
+      "author": "James Allen",
+      "year": 1903,
+      "description": "A classic work on the power of thought and its impact on life outcomes."
+    },
+    {
+      "title": "The Happiness Hypothesis",
+      "author": "Jonathan Haidt",
+      "year": 2006,
+      "description": "Examines ancient wisdom and its relevance to modern happiness."
+    },
+    {
+      "title": "The Obstacle Is the Way",
+      "author": "Ryan Holiday",
+      "year": 2014,
+      "description": "Applies Stoic philosophy to turn obstacles into opportunities."
+    },
+    {
+      "title": "Mindfulness for Beginners",
+      "author": "Jon Kabat-Zinn",
+      "year": 2011,
+      "description": "An introduction to mindfulness meditation and its benefits."
+    },
+    {
+      "title": "Radical Acceptance",
+      "author": "Tara Brach",
+      "year": 2003,
+      "description": "Combines mindfulness and compassion to heal emotional wounds."
+    },
+    {
+      "title": "Deep Work",
+      "author": "Cal Newport",
+      "year": 2016,
+      "description": "A guide to achieving focused success in a distracted world."
+    },
+    {
+      "title": "The War of Art",
+      "author": "Steven Pressfield",
+      "year": 2002,
+      "description": "Explores overcoming resistance to achieve creative success."
+    },
+    {
+      "title": "The Wisdom of Insecurity",
+      "author": "Alan Watts",
+      "year": 1951,
+      "description": "Explores the importance of embracing the present moment."
+    },
+    {
+      "title": "The Slight Edge",
+      "author": "Jeff Olson",
+      "year": 2005,
+      "description": "Focuses on small, consistent actions for personal success."
+    },
+    {
+      "title": "Essentialism: The Disciplined Pursuit of Less",
+      "author": "Greg McKeown",
+      "year": 2014,
+      "description": "A guide to focusing on what truly matters by eliminating the nonessential."
+    },
+    {
+      "title": "The Miracle Morning",
+      "author": "Hal Elrod",
+      "year": 2012,
+      "description": "A routine-based approach to transforming your life before 8 a.m."
+    },
+    {
+      "title": "The 48 Laws of Power",
+      "author": "Robert Greene",
+      "year": 1998,
+      "description": "A detailed analysis of power dynamics and strategies."
+    },
+    {
+      "title": "The Daily Stoic",
+      "author": "Ryan Holiday and Stephen Hanselman",
+      "year": 2016,
+      "description": "Daily meditations inspired by Stoic philosophy."
+    },
+    {
+      "title": "The Life-Changing Magic of Tidying Up",
+      "author": "Marie Kondo",
+      "year": 2011,
+      "description": "A guide to decluttering and organizing your life."
+    },
+    {
+      "title": "The Path to Love",
+      "author": "Deepak Chopra",
+      "year": 1997,
+      "description": "Explores the spiritual dimensions of love and relationships."
+    },
+    {
+      "title": "Antifragile",
+      "author": "Nassim Nicholas Taleb",
+      "year": 2012,
+      "description": "Explains how to thrive in chaos by becoming resilient and adaptable."
+    },
+    {
+      "title": "Loving What Is",
+      "author": "Byron Katie",
+      "year": 2002,
+      "description": "A method for questioning and transforming negative thoughts."
+    },
+    {
+      "title": "The Seven Spiritual Laws of Success",
+      "author": "Deepak Chopra",
+      "year": 1994,
+      "description": "A spiritual guide to achieving success through universal principles."
+    },
+    {
+      "title": "Principles: Life and Work",
+      "author": "Ray Dalio",
+      "year": 2017,
+      "description": "Shares the principles behind the author's life and business success."
+    },
+    {
+      "title": "Why We Sleep",
+      "author": "Matthew Walker",
+      "year": 2017,
+      "description": "Explores the science and benefits of sleep."
+    },
+    {
+      "title": "Think Like a Monk",
+      "author": "Jay Shetty",
+      "year": 2020,
+      "description": "Shares insights from monk philosophy for modern living."
+    },
+    {
+      "title": "Mastery",
+      "author": "Robert Greene",
+      "year": 2012,
+      "description": "Explores the paths of historical figures to achieve mastery in their fields."
+    },
+    {
+      "title": "The Art of Happiness",
+      "author": "Dalai Lama and Howard Cutler",
+      "year": 1998,
+      "description": "A dialogue on cultivating happiness and inner peace."
+    },
+    {
+      "title": "On Liberty",
+      "author": "John Stuart Mill",
+      "year": 1859,
+      "description": "Explores the limits of authority and individual freedom."
+    },
+    {
+      "title": "Nicomachean Ethics",
+      "author": "Aristotle",
+      "year": "circa 4th century BCE",
+      "description": "Discusses the nature of happiness and virtue."
+    },
+    {
+      "title": "Alain de Botton",
+      "author": "The Architecture of Happiness",
+      "year": 2006,
+      "description": "Examines how our environment affects our well-being."
+    }
+]
