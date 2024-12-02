@@ -3,25 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		8E24F8A22CD6D15A004BF757 /* pncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E24F8A12CD6D15A004BF757 /* pncApp.swift */; };
-		8E24F8A42CD6D15A004BF757 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E24F8A32CD6D15A004BF757 /* ContentView.swift */; };
 		8E24F8A62CD6D15D004BF757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E24F8A52CD6D15D004BF757 /* Assets.xcassets */; };
 		8E24F8A92CD6D15D004BF757 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E24F8A82CD6D15D004BF757 /* Preview Assets.xcassets */; };
-		8EE4BE342CFD2AC700ED58A8 /* generalInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EE4BE322CFD2AC700ED58A8 /* generalInfo.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8E24F89E2CD6D15A004BF757 /* pnc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pnc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E24F8A12CD6D15A004BF757 /* pncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pncApp.swift; sourceTree = "<group>"; };
-		8E24F8A32CD6D15A004BF757 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8E24F8A52CD6D15D004BF757 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E24F8A82CD6D15D004BF757 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		8EE4BE322CFD2AC700ED58A8 /* generalInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = generalInfo.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		8EE4BE3F2CFD2EE400ED58A8 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		8EE4BE422CFD68B900ED58A8 /* ViewModels */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModels; sourceTree = "<group>"; };
+		8EE4BE482CFD691300ED58A8 /* bookData */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = bookData; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8E24F89B2CD6D15A004BF757 /* Frameworks */ = {
@@ -53,9 +55,10 @@
 		8E24F8A02CD6D15A004BF757 /* pnc */ = {
 			isa = PBXGroup;
 			children = (
-				8EE4BE332CFD2AC700ED58A8 /* Book Data */,
+				8EE4BE482CFD691300ED58A8 /* bookData */,
 				8E24F8A12CD6D15A004BF757 /* pncApp.swift */,
-				8E24F8A32CD6D15A004BF757 /* ContentView.swift */,
+				8EE4BE422CFD68B900ED58A8 /* ViewModels */,
+				8EE4BE3F2CFD2EE400ED58A8 /* Models */,
 				8E24F8A52CD6D15D004BF757 /* Assets.xcassets */,
 				8E24F8A72CD6D15D004BF757 /* Preview Content */,
 			);
@@ -68,14 +71,6 @@
 				8E24F8A82CD6D15D004BF757 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		8EE4BE332CFD2AC700ED58A8 /* Book Data */ = {
-			isa = PBXGroup;
-			children = (
-				8EE4BE322CFD2AC700ED58A8 /* generalInfo.json */,
-			);
-			path = "Book Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,6 +87,11 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8EE4BE3F2CFD2EE400ED58A8 /* Models */,
+				8EE4BE422CFD68B900ED58A8 /* ViewModels */,
+				8EE4BE482CFD691300ED58A8 /* bookData */,
 			);
 			name = pnc;
 			productName = pnc;
@@ -138,7 +138,6 @@
 			files = (
 				8E24F8A92CD6D15D004BF757 /* Preview Assets.xcassets in Resources */,
 				8E24F8A62CD6D15D004BF757 /* Assets.xcassets in Resources */,
-				8EE4BE342CFD2AC700ED58A8 /* generalInfo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +148,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E24F8A42CD6D15A004BF757 /* ContentView.swift in Sources */,
 				8E24F8A22CD6D15A004BF757 /* pncApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -102,7 +102,9 @@ struct DropdownMenuView: View {
             .padding(.top)
 
             VStack(alignment: .leading, spacing: 10) {
-                menuItem(icon: "magnifyingglass", title: "Search")
+                NavigationLink(destination: SearchView()) {
+                    menuItem(icon: "magnifyingglass", title: "Search")
+                }
                 menuItem(icon: "book", title: "Books")
                 NavigationLink(destination: FavoritesView(viewModel: viewModel)) {
                     menuItem(icon: "star.fill", title: "Favorites")
