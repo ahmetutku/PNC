@@ -9,7 +9,7 @@
 import Foundation
 
 struct Book: Identifiable, Decodable {
-    let id: UUID?// Unique ID for SwiftUI
+    let id: UUID?
     let title: String
     let author: String
     let year: Int
