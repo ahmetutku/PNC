@@ -15,9 +15,12 @@ struct SearchView: View {
 
     var body: some View {
         VStack {
-            TextField("Search for books...", text: $searchQuery, onCommit: performSearch)
+            TextField("Search for books...", text: $searchQuery)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
+                .onChange(of: searchQuery) { _ in
+                    performSearch() // Perform search whenever the search query changes
+                }
 
             if searchResults.isEmpty {
                 Text("No results found")
@@ -52,7 +55,7 @@ struct SearchView: View {
             let data = try Data(contentsOf: url)
             let decodedBooks = try JSONDecoder().decode([Book].self, from: data)
             books = decodedBooks
-            searchResults = books
+            searchResults = books // Initially set search results to all books
         } catch {
             print("Error loading or decoding JSON: \(error)")
             books = []
