@@ -9,14 +9,14 @@
 import Foundation
 
 struct Book: Identifiable, Decodable {
-    let id: UUID// Unique ID for SwiftUI
+    let id: UUID?// Unique ID for SwiftUI
     let title: String
     let author: String
     let year: Int
     let description: String
     
-    init(id: UUID = UUID(), title: String, author: String, year: Int, description: String) {
-        self.id = id
+    init(id: UUID? = nil, title: String, author: String, year: Int, description: String) {
+        self.id = id ?? UUID() 
         self.title = title
         self.author = author
         self.year = year
