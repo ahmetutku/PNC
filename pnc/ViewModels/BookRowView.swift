@@ -30,8 +30,8 @@ struct BookRowView: View {
                 .foregroundColor(.primary)
                 .lineLimit(3)
         }
-        .padding()
-        .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
-        .shadow(radius: 2)
+//        .padding()
+//        .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
+//        .shadow(radius: 2)
     }
 }
