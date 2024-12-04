@@ -1,3 +1,12 @@
+//
+//  BookDetailView.swift
+//  pnc
+//
+//  Created by Ahmet Hamamcioglu on 3.12.2024.
+//
+
+import SwiftUI
+
 struct BookDetailView: View {
     let book: Book
 

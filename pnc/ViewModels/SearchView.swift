@@ -26,22 +26,19 @@ struct SearchView: View {
                     }
 
                 if searchResults.isEmpty {
+                    Spacer()
                     Text("No results found")
-                        .foregroundColor(.secondary)
-                        .padding()
+                    Spacer()
                 } else {
                     List {
                         ForEach(searchResults) { book in
-                            BookRowView(book: book)
-                                .listRowInsets(EdgeInsets())
-                                .background(Color.white) // Set white background for book cards
-                                .cornerRadius(8)
-                                .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
-                                .padding(.horizontal)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
+                            NavigationLink(destination: BookDetailView(book: book)) {
+                                BookRowView(book: book)
+                            }
+                        }.padding()
+                        
                     }
-                    .listStyle(PlainListStyle()) // Remove default background color of List
+                    .listStyle(PlainListStyle()) 
                 }
             }
             .onAppear {
