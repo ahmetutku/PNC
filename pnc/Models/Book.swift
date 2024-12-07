@@ -13,9 +13,10 @@ struct Book: Identifiable, Decodable {
     let author: String
     let year: Int
     let description: String
-    
+    let quotes: [String] // Add quotes array to the model
+
     enum CodingKeys: String, CodingKey {
-        case id, title, author, year, description
+        case id, title, author, year, description, quotes
     }
 
     init(from decoder: Decoder) throws {
@@ -25,6 +26,8 @@ struct Book: Identifiable, Decodable {
         self.author = try container.decode(String.self, forKey: .author)
         self.year = try container.decode(Int.self, forKey: .year)
         self.description = try container.decode(String.self, forKey: .description)
+        self.quotes = try container.decodeIfPresent([String].self, forKey: .quotes) ?? []
     }
 }
+
 
