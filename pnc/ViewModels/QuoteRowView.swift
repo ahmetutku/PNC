@@ -1,3 +1,11 @@
+//
+//  QuoteRowView.swift
+//  pnc
+//
+//  Created by Ahmet Hamamcioglu on 7.12.2024.
+//
+import SwiftUI
+
 struct QuoteRowView: View {
     var quote: Quote
     var isFavorite: Bool

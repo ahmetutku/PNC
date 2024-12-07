@@ -1,3 +1,12 @@
+//
+//  QuoteView.swift
+//  pnc
+//
+//  Created by Ahmet Hamamcioglu on 7.12.2024.
+//
+ 
+import SwiftUI
+
 struct QuoteView: View {
     let quote: Quote
     @ObservedObject var viewModel: QuotesViewModel
