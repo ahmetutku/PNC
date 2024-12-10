@@ -6,20 +6,6 @@
 //
 import SwiftUI
 
-// MARK: - ViewModel to Manage Quotes
-class QuotesViewModel: ObservableObject {
-    @Published var quotes: [Quote] = Quote.sampleQuotes // Sample quotes for display
-    @Published var favoriteQuotes: [Quote] = [] // Saved favorite quotes
-
-    func toggleFavorite(_ quote: Quote) {
-        if favoriteQuotes.contains(quote) {
-            favoriteQuotes.removeAll { $0.id == quote.id }
-        } else {
-            favoriteQuotes.append(quote)
-        }
-    }
-}
-
 // MARK: - ContentView
 struct ContentView: View {
     @StateObject private var viewModel = QuotesViewModel() // Shared ViewModel
@@ -84,69 +70,6 @@ struct ContentView: View {
     }
 }
 
-// MARK: - Dropdown Menu View
-struct DropdownMenuView: View {
-    @Binding var isMenuOpen: Bool
-    @ObservedObject var viewModel: QuotesViewModel
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Spacer()
-                Button(action: { isMenuOpen = false }) {
-                    Image(systemName: "xmark")
-                        .foregroundColor(.gray)
-                        .padding(.trailing)
-                }
-            }
-            .padding(.top)
-
-            VStack(alignment: .leading, spacing: 10) {
-                NavigationLink(destination: SearchView()) {
-                    menuItem(icon: "magnifyingglass", title: "Search")
-                }
-                NavigationLink(destination: BooksView(viewModel: viewModel)){
-                    menuItem(icon: "book", title: "Books")
-                }
-                NavigationLink(destination: FavoritesView(viewModel: viewModel)) {
-                    menuItem(icon: "star.fill", title: "Favorites")
-                }
-                menuItem(icon: "flame", title: "Popular")
-            }
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
-            .padding()
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .background(Color.black.opacity(0.25).edgesIgnoringSafeArea(.all))
-    }
-
-    private func menuItem(icon: String, title: String) -> some View {
-        HStack {
-            Image(systemName: icon)
-                .foregroundColor(.accentColor)
-            Text(title)
-                .foregroundColor(.primary)
-        }
-        .padding(.vertical, 5)
-    }
-}
-
-// MARK: - Quote Model and Sample Data
-struct Quote: Identifiable, Equatable {
-    let id = UUID()
-    let text: String
-    let author: String
-
-    static let sampleQuotes: [Quote] = [
-        Quote(text: "The only limit to our realization of tomorrow is our doubts of today.", author: "Franklin D. Roosevelt"),
-        Quote(text: "Success is not final, failure is not fatal: It is the courage to continue that counts.", author: "Winston Churchill"),
-        Quote(text: "Do not wait to strike till the iron is hot; but make it hot by striking.", author: "William Butler Yeats"),
-        Quote(text: "Do not wait to strike till the iron is hot; but make it hot by striking.", author: "William Butler Yeats"),
-        Quote(text: "Do not wait to strike till the iron is hot; but make it hot by striking.", author: "William Butler Yeats"),
-        Quote(text: "Do not wait to strike till the iron is hot; but make it hot by striking.", author: "William Butler Yeats")
-    ]
-}
 
 // MARK: - Preview
 struct ContentView_Previews: PreviewProvider {

@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct BookRowView: View {
     let book: Book
 
