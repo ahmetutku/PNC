@@ -105,7 +105,9 @@ struct DropdownMenuView: View {
                 NavigationLink(destination: SearchView()) {
                     menuItem(icon: "magnifyingglass", title: "Search")
                 }
-                menuItem(icon: "book", title: "Books")
+                NavigationLink(destination: BooksView(viewModel: viewModel)){
+                    menuItem(icon: "book", title: "Books")
+                }
                 NavigationLink(destination: FavoritesView(viewModel: viewModel)) {
                     menuItem(icon: "star.fill", title: "Favorites")
                 }
@@ -127,33 +129,6 @@ struct DropdownMenuView: View {
                 .foregroundColor(.primary)
         }
         .padding(.vertical, 5)
-    }
-}
-
-// MARK: - Favorites View
-struct FavoritesView: View {
-    @ObservedObject var viewModel: QuotesViewModel
-
-    var body: some View {
-        VStack(spacing: 20) {
-            Text("Favorite Quotes")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.top)
-
-            ScrollView {
-                ForEach(viewModel.favoriteQuotes) { quote in
-                    QuoteRowView(quote: quote, isFavorite: true) {
-                        viewModel.toggleFavorite(quote)
-                    }
-                    .padding()
-                }
-            }
-
-            Spacer()
-        }
-        .padding()
-        .background(Color("beigeColor").ignoresSafeArea())
     }
 }
 
