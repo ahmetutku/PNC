@@ -9,7 +9,8 @@ import SwiftUI
 // MARK: - Dropdown Menu View
 struct DropdownMenuView: View {
     @Binding var isMenuOpen: Bool
-    @ObservedObject var viewModel: QuotesViewModel
+    @ObservedObject var quotesViewModel: QuotesViewModel
+    @ObservedObject var bookRowModel: BookRowModel
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -24,13 +25,13 @@ struct DropdownMenuView: View {
             .padding(.top)
 
             VStack(alignment: .leading, spacing: 10) {
-                NavigationLink(destination: SearchView()) {
+                NavigationLink(destination: SearchView(bookRowModel:BookRowModel())) {
                     menuItem(icon: "magnifyingglass", title: "Search")
                 }
-                NavigationLink(destination: BooksView(viewModel: viewModel)){
+                NavigationLink(destination: BooksView(model: bookRowModel)) {
                     menuItem(icon: "book", title: "Books")
                 }
-                NavigationLink(destination: FavoritesView(viewModel: viewModel)) {
+                NavigationLink(destination: FavoritesView(viewModel: quotesViewModel)) {
                     menuItem(icon: "star.fill", title: "Favorites")
                 }
                 menuItem(icon: "flame", title: "Popular")

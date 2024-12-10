@@ -12,6 +12,7 @@ struct SearchView: View {
     @State private var searchQuery = ""
     @State private var searchResults: [Book] = []
     @State private var books: [Book] = []
+    @StateObject var bookRowModel: BookRowModel
 
     var body: some View {
         ZStack {
@@ -22,7 +23,7 @@ struct SearchView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                     .onChange(of: searchQuery) { _ in
-                        performSearch() // Perform search whenever the search query changes
+                        performSearch()
                     }
 
                 if searchResults.isEmpty {
@@ -33,12 +34,12 @@ struct SearchView: View {
                     List {
                         ForEach(searchResults) { book in
                             NavigationLink(destination: BookDetailView(book: book)) {
-                                BookRowView(book: book)
+                                BookRowView(book: book, model: bookRowModel) // Pass the model here
                             }
-                        }.padding()
-                        
+                        }
+                        .padding()
                     }
-                    .listStyle(PlainListStyle()) 
+                    .listStyle(PlainListStyle())
                 }
             }
             .onAppear {
@@ -46,7 +47,6 @@ struct SearchView: View {
             }
         }
         .navigationTitle("Search")
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(Color.white.edgesIgnoringSafeArea(.all))
     }
 
@@ -64,7 +64,7 @@ struct SearchView: View {
             let data = try Data(contentsOf: url)
             let decodedBooks = try JSONDecoder().decode([Book].self, from: data)
             books = decodedBooks
-            searchResults = books // Initially set search results to all books
+            searchResults = books
         } catch {
             print("Error loading or decoding JSON: \(error)")
             books = []

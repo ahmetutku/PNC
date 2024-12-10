@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-// MARK: - Favorites View
 struct BooksView: View {
-    @ObservedObject var viewModel: QuotesViewModel
+    @ObservedObject var model: BookRowModel
 
     var body: some View {
         VStack(spacing: 20) {
@@ -19,11 +18,9 @@ struct BooksView: View {
                 .padding(.top)
 
             ScrollView {
-                ForEach(viewModel.favoriteQuotes) { quote in
-                    QuoteRowView(quote: quote, isFavorite: true) {
-                        viewModel.toggleFavorite(quote)
-                    }
-                    .padding()
+                ForEach(model.favoriteBooks) { book in
+                    BookRowView(book: book, model: model)
+                        .padding()
                 }
             }
 

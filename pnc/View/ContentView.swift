@@ -8,6 +8,8 @@ import SwiftUI
 
 // MARK: - ContentView
 struct ContentView: View {
+    @StateObject var quotesViewModel = QuotesViewModel()
+    @StateObject var bookRowModel = BookRowModel()
     @StateObject private var viewModel = QuotesViewModel() // Shared ViewModel
     @State private var isMenuOpen: Bool = false // Toggle for dropdown menu
 
@@ -47,7 +49,8 @@ struct ContentView: View {
                 if isMenuOpen {
                     DropdownMenuView(
                         isMenuOpen: $isMenuOpen,
-                        viewModel: viewModel
+                        quotesViewModel: quotesViewModel,
+                        bookRowModel: bookRowModel
                     )
                 }
             }

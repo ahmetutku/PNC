@@ -16,5 +16,5 @@ class BookRowModel: ObservableObject {
         } else {
             favoriteBooks.append(book)
         }
-    }
+    }   
 }
