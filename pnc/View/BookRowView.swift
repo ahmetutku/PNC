@@ -15,35 +15,39 @@ struct BookRowView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text(book.title)
-                .font(.headline)
-                .foregroundColor(.primary)
-
-            Text(book.author)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-
-            Text("\(book.year)")
-                .font(.caption)
-                .foregroundColor(.secondary)
-
-            Text(book.description)
-                .font(.body)
-                .foregroundColor(.primary)
-                .lineLimit(3)
-
             HStack {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(book.title)
+                        .font(.headline)
+                        .foregroundColor(.primary)
+
+                    Text(book.author)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+
+                    Text("\(book.year)")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+
+                    Text(book.description)
+                        .font(.body)
+                        .foregroundColor(.primary)
+                        .lineLimit(3)
+                }
+
                 Spacer()
+
                 Button(action: {
                     model.addToMyBooks(book)
                 }) {
-                    Text(model.favoriteBooks.contains(where: { $0.id == book.id }) ? "Remove from My Books" : "Add to My Books")
+                    Text(model.favoriteBooks.contains(where: { $0.id == book.id }) ? "Remove" : "Add")
                         .font(.caption)
                         .foregroundColor(.white)
                         .padding(8)
                         .background(model.favoriteBooks.contains(where: { $0.id == book.id }) ? Color.red : Color.blue)
                         .cornerRadius(8)
                 }
+                .buttonStyle(PlainButtonStyle()) // Ensure it doesn't inherit button styles from NavigationLink
             }
         }
         .padding()

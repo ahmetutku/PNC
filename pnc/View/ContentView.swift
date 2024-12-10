@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var quotesViewModel = QuotesViewModel()
     @StateObject var bookRowModel = BookRowModel()
-    @StateObject private var viewModel = QuotesViewModel() // Shared ViewModel
     @State private var isMenuOpen: Bool = false // Toggle for dropdown menu
 
     var body: some View {
@@ -30,12 +29,12 @@ struct ContentView: View {
 
                     // Scrollable Quotes List
                     
-                        ForEach(viewModel.quotes) { quote in
+                        ForEach(quotesViewModel.quotes) { quote in
                             QuoteRowView(
                                 quote: quote,
-                                isFavorite: viewModel.favoriteQuotes.contains(quote)
+                                isFavorite: quotesViewModel.favoriteQuotes.contains(quote)
                             ) {
-                                viewModel.toggleFavorite(quote)
+                                quotesViewModel.toggleFavorite(quote)
                             }
                             .padding()
                         }

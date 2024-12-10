@@ -16,5 +16,6 @@ class BookRowModel: ObservableObject {
         } else {
             favoriteBooks.append(book)
         }
-    }   
+        print("Favorite Books: \(favoriteBooks.count)")
+    }
 }
