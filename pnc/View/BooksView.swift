@@ -19,10 +19,11 @@ struct BooksView: View {
 
             ScrollView {
                 ForEach(model.favoriteBooks) { book in
-                    BookRowView(book: book, model: model)
-                        .padding()
-                }
-            }
+                    NavigationLink(destination: BookDetailView(book: book)) {
+                        BookRowView(book: book, model: model)
+                    }
+                }.padding()
+            }.listStyle(PlainListStyle())
 
             Spacer()
         }
