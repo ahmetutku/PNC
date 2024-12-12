@@ -13,35 +13,44 @@ struct DropdownMenuView: View {
     @ObservedObject var bookRowModel: BookRowModel
 
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Spacer()
-                Button(action: { isMenuOpen = false }) {
-                    Image(systemName: "xmark")
-                        .foregroundColor(.gray)
-                        .padding(.trailing)
+        ZStack {
+            // Transparent background to detect taps outside the dropdown
+            Color.black.opacity(0.25)
+                .ignoresSafeArea()
+                .onTapGesture {
+                    isMenuOpen = false
                 }
-            }
-            .padding(.top)
 
-            VStack(alignment: .leading, spacing: 10) {
-                NavigationLink(destination: SearchView(bookRowModel: bookRowModel)) {
-                    menuItem(icon: "magnifyingglass", title: "Search")
+            // Dropdown menu content
+            VStack(alignment: .leading) {
+                HStack {
+                    Spacer()
+                    Button(action: { isMenuOpen = false }) {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.gray)
+                            .padding(.trailing)
+                    }
                 }
-                NavigationLink(destination: BooksView(model: bookRowModel)) {
-                    menuItem(icon: "book", title: "Books")
+                .padding(.top)
+
+                VStack(alignment: .leading, spacing: 10) {
+                    NavigationLink(destination: SearchView(bookRowModel: bookRowModel)) {
+                        menuItem(icon: "magnifyingglass", title: "Search")
+                    }
+                    NavigationLink(destination: BooksView(model: bookRowModel)) {
+                        menuItem(icon: "book", title: "Books")
+                    }
+                    NavigationLink(destination: FavoritesView(viewModel: quotesViewModel)) {
+                        menuItem(icon: "star.fill", title: "Favorites")
+                    }
+                    menuItem(icon: "flame", title: "Popular")
                 }
-                NavigationLink(destination: FavoritesView(viewModel: quotesViewModel)) {
-                    menuItem(icon: "star.fill", title: "Favorites")
-                }
-                menuItem(icon: "flame", title: "Popular")
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
+                .padding()
             }
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
-            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .background(Color.black.opacity(0.25).edgesIgnoringSafeArea(.all))
     }
 
     private func menuItem(icon: String, title: String) -> some View {
