@@ -19,7 +19,7 @@ struct BooksView: View {
 
             ScrollView {
                 ForEach(model.favoriteBooks) { book in
-                    NavigationLink(destination: BookDetailView(book: book)) {
+                    NavigationLink(destination: BookDetailView(book: book, model: model)) {
                         BookRowView(book: book, model: model)
                     }
                 }.padding()

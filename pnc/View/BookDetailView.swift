@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BookDetailView: View {
     let book: Book
+    @ObservedObject var model: BookRowModel
 
     var body: some View {
         ScrollView {
@@ -62,17 +63,17 @@ struct BookDetailView: View {
 
                 // Add to My Books button
                 Button(action: {
-                    // Action to add the book to "My Books"
-                    print("Added \(book.title) to My Books")
+                    model.addToMyBooks(book)
                 }) {
-                    Text("Add this to My Books")
-                        .font(.headline)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
+                    Text(model.favoriteBooks.contains(where: { $0.id == book.id }) ? "Remove" : "Add")
+                        .font(.caption)
                         .foregroundColor(.white)
-                        .cornerRadius(10)
+                        .padding(8)
+                        .background(model.favoriteBooks.contains(where: { $0.id == book.id }) ? Color.red : Color.blue)
+                        .cornerRadius(8)
                 }
+                .buttonStyle(PlainButtonStyle()) // Ensure it doesn't inherit button styles from NavigationLink
+            
             }
             .padding()
         }

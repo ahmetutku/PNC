@@ -33,7 +33,7 @@ struct SearchView: View {
                 } else {
                     List {
                         ForEach(searchResults) { book in
-                            NavigationLink(destination: BookDetailView(book: book)) {
+                            NavigationLink(destination: BookDetailView(book: book, model: bookRowModel)) {
                                 BookRowView(book: book, model: bookRowModel) // Pass the model here
                             }
                         }
