@@ -8,14 +8,33 @@
 import SwiftUI
 
 class QuotesViewModel: ObservableObject {
-    @Published var quotes: [Quote] = Quote.sampleQuotes // Sample quotes for display
-    @Published var favoriteQuotes: [Quote] = [] // Saved favorite quotes
+    @Published var quotes: [Quote] = []
+    @Published var favoriteQuotes: [Quote] = []
 
+    /// Load quotes from a list of books, ensuring no duplicates are added.
+    func loadQuotes(for books: [Book]) {
+        let newQuotes = books.flatMap { book in
+            book.quotes.map { quoteText in
+                Quote(text: quoteText, author: book.author)
+            }
+        }
+        
+        // Filter out duplicates
+        let uniqueQuotes = newQuotes.filter { newQuote in
+            !quotes.contains(where: { $0.text == newQuote.text && $0.author == newQuote.author })
+        }
+        
+        quotes.append(contentsOf: uniqueQuotes)
+    }
+
+    /// Toggle a quote's favorite status
     func toggleFavorite(_ quote: Quote) {
-        if favoriteQuotes.contains(quote) {
-            favoriteQuotes.removeAll { $0.id == quote.id }
+        if let index = favoriteQuotes.firstIndex(of: quote) {
+            favoriteQuotes.remove(at: index)
         } else {
             favoriteQuotes.append(quote)
         }
     }
 }
+
+

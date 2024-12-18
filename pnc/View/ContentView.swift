@@ -1,17 +1,15 @@
 import SwiftUI
 
-// MARK: - ContentView
 struct ContentView: View {
     @StateObject var quotesViewModel = QuotesViewModel()
     @StateObject var bookRowModel = BookRowModel()
-    @State private var isMenuOpen: Bool = false // Toggle for dropdown menu
-    @State private var menuPosition: CGPoint = .zero // Position for the dropdown menu
+    @State private var isMenuOpen: Bool = false
+    @State private var menuPosition: CGPoint = .zero
 
     var body: some View {
         NavigationView {
             ZStack(alignment: .topLeading) {
-                Color("beigeColor") // Add this color to assets for beige background
-                    .ignoresSafeArea()
+                Color("beigeColor").ignoresSafeArea()
 
                 VStack(spacing: 1) {
                     ScrollView {
@@ -22,7 +20,7 @@ struct ContentView: View {
                             .foregroundColor(.accentColor)
                             .padding(.top)
 
-                        // Scrollable Quotes List
+                        // Display quotes from selected books
                         ForEach(quotesViewModel.quotes) { quote in
                             QuoteRowView(
                                 quote: quote,
@@ -44,26 +42,25 @@ struct ContentView: View {
                         isMenuOpen: $isMenuOpen,
                         quotesViewModel: quotesViewModel,
                         bookRowModel: bookRowModel
-                    ).padding(.top, -60.0
-                    )
-                    // Position the menu under the button
+                    ).padding(.top, -60.0)
                 }
             }
             .navigationBarItems(leading: menuButton)
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                quotesViewModel.loadQuotes(for: bookRowModel.favoriteBooks)
+            }
         }
     }
 
-    // Button for the dropdown menu
     private var menuButton: some View {
         GeometryReader { geometry in
             Button(action: {
                 withAnimation {
                     isMenuOpen.toggle()
-                    // Capture the button's position
                     menuPosition = CGPoint(
-                        x: geometry.frame(in: .global).minX + 20, // Adjust horizontal offset
-                        y: geometry.frame(in: .global).maxY + 10  // Place the dropdown below the button
+                        x: geometry.frame(in: .global).minX + 20,
+                        y: geometry.frame(in: .global).maxY + 10
                     )
                 }
             }) {
@@ -72,7 +69,7 @@ struct ContentView: View {
                     .foregroundColor(.accentColor)
             }
         }
-        .frame(width: 44, height: 44) // Ensure the button has a consistent size
+        .frame(width: 44, height: 44)
     }
 }
 
@@ -82,3 +79,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
