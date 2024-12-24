@@ -22,9 +22,22 @@ struct BooksView: View {
                     NavigationLink(destination: BookDetailView(book: book, model: model)) {
                         BookRowView(book: book, model: model)
                     }
+                    
+                    
                 }.padding()
+                if(model.favoriteBooks.isEmpty){
+                    Spacer()
+                    Text("Faorited Books is Empty")
+                    Spacer()
+                    Text("Recomended Books")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding(.top)
+//                    BookLoader.loadBooks()
+                    Spacer()
+                    
+                }
             }.listStyle(PlainListStyle())
-
             Spacer()
         }
         .padding()
