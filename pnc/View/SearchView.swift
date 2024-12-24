@@ -23,7 +23,7 @@ struct SearchView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                     .onChange(of: searchQuery) { _ in
-                        performSearch()
+                        searchResults = BookLoader.performSearch(books: books, query: searchQuery)
                     }
 
                 if searchResults.isEmpty {
@@ -43,43 +43,13 @@ struct SearchView: View {
                 }
             }
             .onAppear {
-                searchResults = BookLoader.loadBooks()
-//call load books here
+                books = BookLoader.loadBooks()
+                searchResults = books
+    
             }
         }
         .navigationTitle("Search")
         .background(Color.white.edgesIgnoringSafeArea(.all))
     }
 
-//     func loadBooks() {
-//        let filePath = "/Users/ahmethamamcioglu/Desktop/pnc_overview/pnc/pnc/bookData/generalInfo.json"
-//        let url = URL(fileURLWithPath: filePath)
-//
-//        guard FileManager.default.fileExists(atPath: filePath) else {
-//            print("Error: JSON file not found at specified path: \(filePath)")
-//            books = []
-//            return
-//        }
-//
-//        do {
-//            let data = try Data(contentsOf: url)
-//            let decodedBooks = try JSONDecoder().decode([Book].self, from: data)
-//            books = decodedBooks
-//            searchResults = books
-//        } catch {
-//            print("Error loading or decoding JSON: \(error)")
-//            books = []
-//        }
-//    }
-
-    private func performSearch() {
-        if searchQuery.isEmpty {
-            searchResults = books
-        } else {
-            searchResults = books.filter {
-                $0.title.localizedCaseInsensitiveContains(searchQuery) ||
-                $0.author.localizedCaseInsensitiveContains(searchQuery)
-            }
-        }
-    }
 }

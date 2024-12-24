@@ -5,7 +5,6 @@
 //  Created by Ahmet Hamamcioglu on 24.12.2024.
 //
 
-
 import Foundation
 
 struct BookLoader {
@@ -28,5 +27,20 @@ struct BookLoader {
             return []
         }
     }
-}
 
+    static func performSearch(books: [Book], query: String) -> [Book] {
+        guard !query.isEmpty else {
+            return books
+        }
+        
+        print(books.filter {
+            $0.title.localizedCaseInsensitiveContains(query) ||
+            $0.author.localizedCaseInsensitiveContains(query)
+        })
+
+        return books.filter {
+            $0.title.localizedCaseInsensitiveContains(query) ||
+            $0.author.localizedCaseInsensitiveContains(query)
+        }
+    }
+}
