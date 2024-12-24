@@ -20,6 +20,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		8E59C88A2D1AD5FF00243403 /* Services */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Services; sourceTree = "<group>"; };
 		8EE4BE3F2CFD2EE400ED58A8 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 		8EE4BE422CFD68B900ED58A8 /* ViewModels */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModels; sourceTree = "<group>"; };
 		8EE4BE482CFD691300ED58A8 /* bookData */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = bookData; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 			children = (
 				8EE4BE482CFD691300ED58A8 /* bookData */,
 				8E24F8A12CD6D15A004BF757 /* pncApp.swift */,
+				8E59C88A2D1AD5FF00243403 /* Services */,
 				8EE4BE792D07DE6700ED58A8 /* View */,
 				8EE4BE422CFD68B900ED58A8 /* ViewModels */,
 				8EE4BE3F2CFD2EE400ED58A8 /* Models */,
@@ -91,6 +93,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				8E59C88A2D1AD5FF00243403 /* Services */,
 				8EE4BE3F2CFD2EE400ED58A8 /* Models */,
 				8EE4BE422CFD68B900ED58A8 /* ViewModels */,
 				8EE4BE482CFD691300ED58A8 /* bookData */,

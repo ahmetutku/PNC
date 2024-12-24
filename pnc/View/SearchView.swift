@@ -43,33 +43,34 @@ struct SearchView: View {
                 }
             }
             .onAppear {
-                loadBooks()
+                searchResults = BookLoader.loadBooks()
+//call load books here
             }
         }
         .navigationTitle("Search")
         .background(Color.white.edgesIgnoringSafeArea(.all))
     }
 
-    private func loadBooks() {
-        let filePath = "/Users/ahmethamamcioglu/Desktop/pnc_overview/pnc/pnc/bookData/generalInfo.json"
-        let url = URL(fileURLWithPath: filePath)
-
-        guard FileManager.default.fileExists(atPath: filePath) else {
-            print("Error: JSON file not found at specified path: \(filePath)")
-            books = []
-            return
-        }
-
-        do {
-            let data = try Data(contentsOf: url)
-            let decodedBooks = try JSONDecoder().decode([Book].self, from: data)
-            books = decodedBooks
-            searchResults = books
-        } catch {
-            print("Error loading or decoding JSON: \(error)")
-            books = []
-        }
-    }
+//     func loadBooks() {
+//        let filePath = "/Users/ahmethamamcioglu/Desktop/pnc_overview/pnc/pnc/bookData/generalInfo.json"
+//        let url = URL(fileURLWithPath: filePath)
+//
+//        guard FileManager.default.fileExists(atPath: filePath) else {
+//            print("Error: JSON file not found at specified path: \(filePath)")
+//            books = []
+//            return
+//        }
+//
+//        do {
+//            let data = try Data(contentsOf: url)
+//            let decodedBooks = try JSONDecoder().decode([Book].self, from: data)
+//            books = decodedBooks
+//            searchResults = books
+//        } catch {
+//            print("Error loading or decoding JSON: \(error)")
+//            books = []
+//        }
+//    }
 
     private func performSearch() {
         if searchQuery.isEmpty {

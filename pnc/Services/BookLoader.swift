@@ -1,7 +1,17 @@
+//
+//  BookLoader.swift
+//  pnc
+//
+//  Created by Ahmet Hamamcioglu on 24.12.2024.
+//
+
+
 import Foundation
 
 struct BookLoader {
-    static func loadBooks(from filePath: String) -> [Book] {
+    private static let filePath = "/Users/ahmethamamcioglu/Desktop/pnc_overview/pnc/pnc/bookData/generalInfo.json"
+
+    static func loadBooks() -> [Book] {
         let url = URL(fileURLWithPath: filePath)
 
         guard FileManager.default.fileExists(atPath: filePath) else {
@@ -19,3 +29,4 @@ struct BookLoader {
         }
     }
 }
+
