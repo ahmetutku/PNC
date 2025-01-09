@@ -13,12 +13,12 @@ class BookRowModel: ObservableObject {
     }
 
     func addToMyBooks(_ book: Book) {
-        if favoriteBooks.contains(where: { $0.id == book.id }) {
-            favoriteBooks.removeAll { $0.id == book.id }
+        if favoriteBooks.contains(where: { $0.title == book.title }) {
+            favoriteBooks.removeAll { $0.title == book.title }
         } else {
             favoriteBooks.append(book)
         }
-        print("Favorite Books: \(favoriteBooks.count)")
-    }
+        let bookDetails = favoriteBooks.map { "\($0.title) (ID: \($0.id))" }.joined(separator: ", ")
+        print("Favorite Books: [\(bookDetails)]")    }
     
 }
