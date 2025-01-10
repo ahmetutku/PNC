@@ -34,6 +34,7 @@ struct ContentView: View {
 
                     Spacer()
                 }
+                .frame(maxWidth: .infinity)
                 .padding()
 
                 // Dropdown menu
