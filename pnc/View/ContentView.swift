@@ -13,13 +13,26 @@ struct ContentView: View {
 
                 VStack(spacing: 1) {
                     ScrollView {
-                        // App Title
-                        Text("PNC")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .foregroundColor(.accentColor)
-                            .padding(.top)
-
+                        if(quotesViewModel.quotes.count == 0){
+                            Text("Welcome To Project PNC")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                                .foregroundColor(.accentColor)
+                                .padding(.top)
+                            
+                            Text("You can get started with adding books using the navigation bar on the top left of your screen").font(.title2)
+                                .fontWeight(.medium)
+                                .padding(.top)
+                                .foregroundColor(.gray)
+                        }
+                        else{
+                            // App Title
+                            Text("PNC")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                                .foregroundColor(.accentColor)
+                                .padding(.top)
+                        }
                         // Display quotes from selected books
                         ForEach(quotesViewModel.quotes) { quote in
                             QuoteRowView(
@@ -46,6 +59,7 @@ struct ContentView: View {
                     ).padding(.top, -60.0)
                 }
             }
+            .background(Color("background_color"))
             .navigationBarItems(leading: menuButton)
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
