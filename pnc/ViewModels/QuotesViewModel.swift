@@ -13,18 +13,15 @@ class QuotesViewModel: ObservableObject {
 
     /// Load quotes from a list of books, ensuring no duplicates are added.
     func loadQuotes(for books: [Book]) {
-        let newQuotes = books.flatMap { book in
-            book.quotes.map { quoteText in
-                Quote(text: quoteText, author: book.author)
+        var newQuotes:  [Quote] = []
+        if(books.count != 0){
+             newQuotes = books.flatMap { book in
+                book.quotes.map { quoteText in
+                    Quote(text: quoteText, author: book.author)
+                }
             }
         }
-        
-        // Filter out duplicates
-        let uniqueQuotes = newQuotes.filter { newQuote in
-            !quotes.contains(where: { $0.text == newQuote.text && $0.author == newQuote.author })
-        }
-        
-        quotes.append(contentsOf: uniqueQuotes)
+        quotes = newQuotes
     }
 
     /// Toggle a quote's favorite status
