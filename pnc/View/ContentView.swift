@@ -59,7 +59,6 @@ struct ContentView: View {
                     ).padding(.top, -60.0)
                 }
             }
-            .background(Color("background_color"))
             .navigationBarItems(leading: menuButton)
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
