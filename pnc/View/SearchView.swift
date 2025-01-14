@@ -12,7 +12,7 @@ struct SearchView: View {
     @State private var searchQuery = ""
     @State private var searchResults: [Book] = []
     @State private var books: [Book] = []
-    @ObservedObject var bookRowModel: BookRowModel // Changed from 'model' to 'bookRowModel'
+    @ObservedObject var bookRowModel: BookRowModel 
 
     var body: some View {
         ZStack {
