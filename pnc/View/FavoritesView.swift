@@ -17,15 +17,20 @@ struct FavoritesView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.top)
-
-            ScrollView {
-                ForEach(viewModel.favoriteQuotes) { quote in
-                    QuoteRowView(quote: quote, isFavorite: true) {
-                        viewModel.toggleFavorite(quote)
-                    }
-                    .padding()
-                }
+            if(viewModel.favoriteQuotes.count == 0){
+                Spacer()
+                Text("No Favorites available")
+                Spacer()
             }
+            else{
+                ScrollView {
+                    ForEach(viewModel.favoriteQuotes) { quote in
+                        QuoteRowView(quote: quote, isFavorite: true) {
+                            viewModel.toggleFavorite(quote)
+                        }
+                        .padding()
+                    }
+                }}
 
             Spacer()
         }

@@ -22,7 +22,7 @@ struct BooksView: View {
                 Spacer() // Push the empty state message to the center
                 Text("Favorited Books is Empty")
                     .multilineTextAlignment(.center)
-                Spacer(minLength: 350)// Push it back up
+                Spacer()// Push it back up
             } else {
                 ScrollView {
                     ForEach(bookRowModel.favoriteBooks) { book in
@@ -34,6 +34,7 @@ struct BooksView: View {
                 }
                 .listStyle(PlainListStyle())
             }
+            Spacer()
         }
         .onAppear {
             books = BookLoader.loadBooks()
@@ -41,7 +42,6 @@ struct BooksView: View {
         }
         .padding()
         .background(Color("beigeColor").ignoresSafeArea())
-
     }
 }
 
