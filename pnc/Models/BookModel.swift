@@ -18,6 +18,15 @@ struct Book: Identifiable, Decodable {
     enum CodingKeys: String, CodingKey {
         case id, title, author, year, description, quotes
     }
+    
+    init(id: UUID, title: String, author: String, year: Int, description: String, quotes: [String]) {
+            self.id = id
+            self.title = title
+            self.author = author
+            self.year = year
+            self.description = description
+            self.quotes = quotes
+        }
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
