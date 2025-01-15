@@ -47,14 +47,39 @@ struct BooksView: View {
 
 struct BookView_Previews: PreviewProvider {
     static var previews: some View {
-        // Create mock books
+        let emptyBookRowModel = BookRowModel()
+        emptyBookRowModel.favoriteBooks = []
         
-        // Create a mock BookRowModel with favorite books
-        let mockBookRowModel = BookRowModel()
-        mockBookRowModel.favoriteBooks = []
-        
-        return NavigationView {
-            BooksView(bookRowModel: mockBookRowModel)
+        let filledBookRowModel = BookRowModel()
+        filledBookRowModel.favoriteBooks = [
+                    Book(
+                        id: UUID(),
+                        title: "The Swift Programming Language",
+                        author: "Apple Inc.",
+                        year: 2024,
+                        description: "A comprehensive guide to Swift programming.",
+                        quotes: ["Swift is fast and safe.", "Code is meant to be read."]
+                    ),
+                    Book(
+                        id: UUID(),
+                        title: "Clean Code",
+                        author: "Robert C. Martin",
+                        year: 2008,
+                        description: "A guide to writing clean, maintainable code.",
+                        quotes: ["Clean code is readable.", "Simplicity is the key to brilliance."]
+                    )
+                ]
+
+        return Group {
+            NavigationView {
+                BooksView(bookRowModel: emptyBookRowModel)
+            }
+            .previewDisplayName("Empty Favorites")
+            
+            NavigationView {
+                BooksView(bookRowModel: filledBookRowModel)
+            }
+            .previewDisplayName("With Favorites")
         }
     }
 }
