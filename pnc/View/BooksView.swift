@@ -38,7 +38,6 @@ struct BooksView: View {
         }
         .onAppear {
             books = BookLoader.loadBooks()
-            print(books.count)
         }
         .padding()
         .background(Color("beigeColor").ignoresSafeArea())
