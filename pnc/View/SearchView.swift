@@ -49,7 +49,20 @@ struct SearchView: View {
             }
         }
         .navigationTitle("Search")
+        .navigationBarTitleDisplayMode(.inline)
         .background(Color.white.edgesIgnoringSafeArea(.all))
     }
+}
 
+struct SearchView_Previews: PreviewProvider {
+    static var previews: some View {
+        let searchBookRowModel = BookRowModel()
+        searchBookRowModel.favoriteBooks = []
+
+        return Group {
+            NavigationView {
+                SearchView(bookRowModel: searchBookRowModel)
+            }
+        }
+    }
 }
