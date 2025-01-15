@@ -19,10 +19,11 @@ struct ContentView: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(.accentColor)
                                 .padding(.top)
-                            
+                            Spacer()
                             Text("You can get started with adding books using the navigation bar on the top left of your screen").font(.title2)
                                 .fontWeight(.medium)
-                                .padding(.top)
+                                .multilineTextAlignment(.center)
+                                .padding([.top, .leading, .trailing], 45.0)
                                 .foregroundColor(.gray)
                         }
                         else{
