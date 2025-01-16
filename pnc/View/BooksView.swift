@@ -19,10 +19,10 @@ struct BooksView: View {
                 .padding(.top)
 
             if bookRowModel.favoriteBooks.isEmpty {
-                Spacer() // Push the empty state message to the center
+                Spacer() 
                 Text("Favorited Books is Empty")
                     .multilineTextAlignment(.center)
-                Spacer()// Push it back up
+                Spacer()
             } else {
                 ScrollView {
                     ForEach(bookRowModel.favoriteBooks) { book in

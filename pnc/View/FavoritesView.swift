@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// MARK: - Favorites View
 struct FavoritesView: View {
     @ObservedObject var viewModel: QuotesViewModel
 

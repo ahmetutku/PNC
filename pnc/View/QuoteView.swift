@@ -19,12 +19,10 @@ struct QuoteView: View {
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.primary)
 
-            // Author
             Text("- \(quote.author)")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
 
-            // Favorite button
             HStack {
                 Spacer()
                 Button(action: {

@@ -57,11 +57,7 @@ struct BookDetailView: View {
                         .italic()
                         .foregroundColor(.gray)
                 }
-
-                // Spacer
                 Spacer()
-
-                // Add to My Books button
                 Button(action: {
                     model.addToMyBooks(book)
                 }) {

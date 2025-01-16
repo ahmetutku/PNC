@@ -47,7 +47,7 @@
                             .background(model.favoriteBooks.contains(where: { $0.title == book.title }) ? Color.red : Color.blue)
                             .cornerRadius(8)
                     }
-                    .buttonStyle(PlainButtonStyle()) // Ensure it doesn't inherit button styles from NavigationLink
+                    .buttonStyle(PlainButtonStyle()) 
                 }
             }
             .padding()

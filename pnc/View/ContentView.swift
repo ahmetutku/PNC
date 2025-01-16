@@ -27,14 +27,12 @@ struct ContentView: View {
                                 .foregroundColor(.gray)
                         }
                         else{
-                            // App Title
                             Text("PNC")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                                 .foregroundColor(.accentColor)
                                 .padding(.top)
                         }
-                        // Display quotes from selected books
                         ForEach(quotesViewModel.quotes) { quote in
                             QuoteRowView(
                                 quote: quote,
@@ -51,7 +49,6 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity)
                 .padding()
 
-                // Dropdown menu
                 if isMenuOpen {
                     DropdownMenuView(
                         isMenuOpen: $isMenuOpen,
@@ -88,7 +85,6 @@ struct ContentView: View {
     }
 }
 
-// MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

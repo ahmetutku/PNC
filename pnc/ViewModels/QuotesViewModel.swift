@@ -11,7 +11,6 @@ class QuotesViewModel: ObservableObject {
     @Published var quotes: [Quote] = []
     @Published var favoriteQuotes: [Quote] = []
 
-    /// Load quotes from a list of books, ensuring no duplicates are added.
     func loadQuotes(for books: [Book]) {
         var newQuotes:  [Quote] = []
         if(books.count != 0){
@@ -24,7 +23,6 @@ class QuotesViewModel: ObservableObject {
         quotes = newQuotes
     }
 
-    /// Toggle a quote's favorite status
     func toggleFavorite(_ quote: Quote) {
         if let index = favoriteQuotes.firstIndex(of: quote) {
             favoriteQuotes.remove(at: index)

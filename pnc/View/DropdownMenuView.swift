@@ -14,14 +14,12 @@ struct DropdownMenuView: View {
 
     var body: some View {
         ZStack {
-            // Transparent background to detect taps outside the dropdown
             Color.black.opacity(0.25)
                 .ignoresSafeArea()
                 .onTapGesture {
                     isMenuOpen = false
                 }
 
-            // Dropdown menu content
             VStack(alignment: .leading) {
                 HStack {
                     Spacer()

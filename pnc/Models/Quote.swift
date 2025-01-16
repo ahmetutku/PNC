@@ -6,7 +6,6 @@
 //
 import SwiftUI
 
-// MARK: - Quote Model and Sample Data
 struct Quote: Identifiable, Equatable {
     let id = UUID()
     let text: String
