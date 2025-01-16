@@ -25,7 +25,7 @@
                             .font(.subheadline)
                             .foregroundColor(.secondary)
 
-                        Text("\(book.year)")
+                        Text(String(book.year))
                             .font(.caption)
                             .foregroundColor(.secondary)
 
