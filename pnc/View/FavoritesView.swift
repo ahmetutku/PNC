@@ -21,6 +21,7 @@ struct FavoritesView: View {
                 Spacer()
                 Text("No Favorites available")
                     .foregroundColor(Color(.subtitle))
+                    .fontWeight(.bold)
                 Spacer()
             }
             else{
