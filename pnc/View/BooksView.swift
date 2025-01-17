@@ -16,12 +16,15 @@ struct BooksView: View {
             Text("My Books")
                 .font(.largeTitle)
                 .fontWeight(.bold)
+                .foregroundColor(.accentColor)
                 .padding(.top)
 
             if bookRowModel.favoriteBooks.isEmpty {
                 Spacer() 
                 Text("Favorited Books is Empty")
-                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color(.subtitle))
+                    .fontWeight(.bold)
+
                 Spacer()
             } else {
                 ScrollView {
