@@ -16,9 +16,11 @@ struct FavoritesView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.top)
+                .foregroundColor(.accentColor)
             if(viewModel.favoriteQuotes.count == 0){
                 Spacer()
                 Text("No Favorites available")
+                    .foregroundColor(Color(.subtitle))
                 Spacer()
             }
             else{
