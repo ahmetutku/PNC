@@ -81,6 +81,7 @@ struct ContentView: View {
             .onAppear {
                 quotesViewModel.loadQuotes(for: bookRowModel.favoriteBooks)
             }
+            .foregroundColor(Color("background"))
         }
     }
 
