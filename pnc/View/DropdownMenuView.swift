@@ -44,8 +44,10 @@ struct DropdownMenuView: View {
                     menuItem(icon: "flame", title: "Popular")
                 }
                 .padding()
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
+                
+                .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color("background_color")))
                 .padding()
+                
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
@@ -56,8 +58,9 @@ struct DropdownMenuView: View {
             Image(systemName: icon)
                 .foregroundColor(.accentColor)
             Text(title)
-                .foregroundColor(.primary)
+                .foregroundColor(.accentColor)
         }
         .padding(.vertical, 5)
+        
     }
 }
