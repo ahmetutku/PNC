@@ -44,24 +44,25 @@ struct ContentView: View {
                         Spacer()
                     }
                     else{
-                        Spacer()
-                        Text("PNC")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .foregroundColor(.accentColor)
-                            .padding(.top)
-                        Spacer()
-                        ForEach(quotesViewModel.quotes) { quote in
-                            QuoteRowView(
-                                quote: quote,
-                                isFavorite: quotesViewModel.favoriteQuotes.contains(quote)
-                            ) {
-                                quotesViewModel.toggleFavorite(quote)
+                        ScrollView{
+                            Spacer()
+                            Text("PNC")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                                .foregroundColor(.accentColor)
+                            Spacer()
+                            ForEach(quotesViewModel.quotes) { quote in
+                                QuoteRowView(
+                                    quote: quote,
+                                    isFavorite: quotesViewModel.favoriteQuotes.contains(quote)
+                                ) {
+                                    quotesViewModel.toggleFavorite(quote)
+                                }
+                                .padding()
                             }
-                            .padding()
+                            Spacer()
                         }
-                        Spacer()
-                        }
+                    }
                     
                 }
                 .frame(maxWidth: .infinity)
