@@ -9,7 +9,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .topLeading) {
-                Color("beigeColor").ignoresSafeArea()
+                Color("background_color").ignoresSafeArea()
 
                 VStack(spacing: 1) {
                     if(quotesViewModel.quotes.count == 0){
@@ -81,7 +81,6 @@ struct ContentView: View {
             .onAppear {
                 quotesViewModel.loadQuotes(for: bookRowModel.favoriteBooks)
             }
-            .foregroundColor(Color("background"))
         }
     }
 
