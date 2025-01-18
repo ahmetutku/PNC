@@ -28,7 +28,6 @@ struct ContentView: View {
                             .foregroundColor(Color(.subtitle))
                             .padding(.top,-80)
                             .padding(.horizontal, 35.0)
-                            .foregroundColor(.gray)
 
                         Spacer(minLength: 20)
 
@@ -39,7 +38,6 @@ struct ContentView: View {
                             .foregroundColor(Color(.subtitle))
                             .padding(.top,-80)
                             .padding(.horizontal, 35)
-                            .foregroundColor(.gray)
 
                         Spacer()
                     }
