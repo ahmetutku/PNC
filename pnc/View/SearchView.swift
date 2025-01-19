@@ -37,12 +37,14 @@ struct SearchView: View {
                                 BookRowView(book: book, model: bookRowModel)
                             }
                         }
+                        
                         .padding()
                         .scrollContentBackground(.hidden)
                         .listRowBackground(Color("background_color"))
 
                         
                     }
+                    .padding(.top, -20)
                     .listStyle(PlainListStyle())
         
                     

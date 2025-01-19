@@ -15,12 +15,6 @@ struct BooksView: View {
         ZStack{
             Color("background_color")
             VStack(spacing: 20) {
-                Text("My Books")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(.accentColor)
-                    .padding(.top)
-                
                 if bookRowModel.favoriteBooks.isEmpty {
                     Spacer()
                     Text("Favorited Books is Empty")
@@ -45,7 +39,16 @@ struct BooksView: View {
             books = BookLoader.loadBooks()
         }
         .padding()
+        .padding(.top, -10.0)
         .background(Color("background_color").ignoresSafeArea())
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("My Books")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.accentColor)
+            }
+        }
     }
 }
 

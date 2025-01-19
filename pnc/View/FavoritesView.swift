@@ -36,6 +36,7 @@ struct FavoritesView: View {
                 Spacer()
             }}
         .padding()
+        .padding(.top, -20.0)
         .background(Color("background_color").ignoresSafeArea())
         .toolbar {
             ToolbarItem(placement: .principal) {
