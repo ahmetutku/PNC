@@ -50,7 +50,7 @@ struct SearchView: View {
         }
         .navigationTitle("Search")
         .navigationBarTitleDisplayMode(.inline)
-        .background(Color.white.edgesIgnoringSafeArea(.all))
+        .background(Color("background_color").edgesIgnoringSafeArea(.all))
     }
 }
 
