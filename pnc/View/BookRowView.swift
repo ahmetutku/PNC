@@ -52,7 +52,7 @@
             }
             .padding()
             .background(RoundedRectangle(cornerRadius: 10).fill(Color("background_color")))
-            .shadow(color: Color.white.opacity(0.33),radius: 2)
+            .shadow(color: Color("bookShadow_color").opacity(0.33),radius: 2)
         }
     }
 
