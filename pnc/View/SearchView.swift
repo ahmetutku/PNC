@@ -18,6 +18,7 @@ struct SearchView: View {
         ZStack {
             Color("background_color")
             VStack {
+
                 TextField("Search for books...", text: $searchQuery)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
@@ -55,7 +56,14 @@ struct SearchView: View {
 
         }
         .background(Color("background_color").ignoresSafeArea())
-        .navigationTitle("Search")
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("Search")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.accentColor)
+            }
+        }
         .navigationBarTitleDisplayMode(.inline)
     }
 }
