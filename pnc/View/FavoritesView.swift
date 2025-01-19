@@ -13,14 +13,11 @@ struct FavoritesView: View {
     var body: some View {
         ZStack{
             Color("background_color")
-            VStack(spacing: 20) {
-                Text("Favorite Quotes")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.top)
-                    .foregroundColor(.accentColor)
+            VStack {
+                Spacer()
                 if(viewModel.favoriteQuotes.count == 0){
                     Spacer()
+                    //able to add the same quote twice fix it
                     Text("No Favorites available")
                         .foregroundColor(Color(.subtitle))
                         .fontWeight(.bold)
@@ -40,6 +37,14 @@ struct FavoritesView: View {
             }}
         .padding()
         .background(Color("background_color").ignoresSafeArea())
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("Favorite Quotes")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.accentColor)
+            }
+        }
     }
     
 }
