@@ -51,7 +51,7 @@
                 }
             }
             .padding()
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
+            .background(RoundedRectangle(cornerRadius: 10).fill(Color("background_color")))
             .shadow(radius: 2)
         }
     }
