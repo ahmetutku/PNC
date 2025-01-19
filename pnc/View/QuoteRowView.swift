@@ -12,6 +12,7 @@ struct QuoteRowView: View {
     var toggleFavorite: () -> Void
 
     var body: some View {
+        
         VStack(alignment: .leading, spacing: 10) {
             Text("\"\(quote.text)\"")
                 .font(.title3)
@@ -31,7 +32,7 @@ struct QuoteRowView: View {
             }
         }
         .padding()
-        .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
-        .shadow(radius: 2)
+        .background(RoundedRectangle(cornerRadius: 10).fill(Color("background_color")))
+        .shadow(color: Color("bookShadow_color").opacity(0.33),radius: 2)
     }
 }
