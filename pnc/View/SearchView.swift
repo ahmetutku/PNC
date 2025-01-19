@@ -16,7 +16,7 @@ struct SearchView: View {
 
     var body: some View {
         ZStack {
-            Color("beigeColor")
+            Color("background_color")
                 .ignoresSafeArea()
             VStack {
                 TextField("Search for books...", text: $searchQuery)
@@ -34,7 +34,7 @@ struct SearchView: View {
                     List {
                         ForEach(searchResults) { book in
                             NavigationLink(destination: BookDetailView(book: book, model: bookRowModel)) {
-                                BookRowView(book: book, model: bookRowModel) 
+                                BookRowView(book: book, model: bookRowModel)
                             }
                         }
                         .padding()
