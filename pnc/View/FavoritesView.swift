@@ -11,32 +11,35 @@ struct FavoritesView: View {
     @ObservedObject var viewModel: QuotesViewModel
 
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Favorite Quotes")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.top)
-                .foregroundColor(.accentColor)
-            if(viewModel.favoriteQuotes.count == 0){
-                Spacer()
-                Text("No Favorites available")
-                    .foregroundColor(Color(.subtitle))
+        ZStack{
+            Color("background_color")
+            VStack(spacing: 20) {
+                Text("Favorite Quotes")
+                    .font(.largeTitle)
                     .fontWeight(.bold)
-                Spacer()
-            }
-            else{
-                ScrollView {
-                    ForEach(viewModel.favoriteQuotes) { quote in
-                        QuoteRowView(quote: quote, isFavorite: true) {
-                            viewModel.toggleFavorite(quote)
+                    .padding(.top)
+                    .foregroundColor(.accentColor)
+                if(viewModel.favoriteQuotes.count == 0){
+                    Spacer()
+                    Text("No Favorites available")
+                        .foregroundColor(Color(.subtitle))
+                        .fontWeight(.bold)
+                    Spacer()
+                }
+                else{
+                    ScrollView {
+                        ForEach(viewModel.favoriteQuotes) { quote in
+                            QuoteRowView(quote: quote, isFavorite: true) {
+                                viewModel.toggleFavorite(quote)
+                            }
+                            .padding()
                         }
-                        .padding()
-                    }
-                }}
-
-            Spacer()
-        }
+                    }}
+                
+                Spacer()
+            }}
         .padding()
-        .background(Color("beigeColor").ignoresSafeArea())
+        .background(Color("background_color").ignoresSafeArea())
     }
+    
 }

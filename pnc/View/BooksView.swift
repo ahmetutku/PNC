@@ -43,7 +43,7 @@ struct BooksView: View {
             books = BookLoader.loadBooks()
         }
         .padding()
-        .background(Color("beigeColor").ignoresSafeArea())
+        .background(Color("background_color").ignoresSafeArea())
     }
 }
 
