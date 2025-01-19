@@ -17,7 +17,6 @@ struct SearchView: View {
     var body: some View {
         ZStack {
             Color("background_color")
-                .ignoresSafeArea()
             VStack {
                 TextField("Search for books...", text: $searchQuery)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -38,8 +37,14 @@ struct SearchView: View {
                             }
                         }
                         .padding()
+                        .scrollContentBackground(.hidden)
+                        .listRowBackground(Color("background_color"))
+
+                        
                     }
                     .listStyle(PlainListStyle())
+        
+                    
                 }
             }
             .onAppear {
@@ -47,10 +52,11 @@ struct SearchView: View {
                 searchResults = books
     
             }
+
         }
+        .background(Color("background_color").ignoresSafeArea())
         .navigationTitle("Search")
         .navigationBarTitleDisplayMode(.inline)
-        .background(Color("background_color").edgesIgnoringSafeArea(.all))
     }
 }
 
