@@ -18,7 +18,7 @@ class BookRowModel: ObservableObject {
         } else {
             favoriteBooks.append(book)
         }
-        let bookDetails = favoriteBooks.map { "\($0.title) (ID: \($0.id))" }.joined(separator: ", ")
+        _ = favoriteBooks.map { "\($0.title) (ID: \($0.id))" }.joined(separator: ", ")
     }
     
 }

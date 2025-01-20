@@ -38,7 +38,7 @@ struct DropdownMenuView: View {
                     NavigationLink(destination: BooksView(bookRowModel: bookRowModel)) {
                         menuItem(icon: "book", title: "Books")
                     }
-                    NavigationLink(destination: FavoritesView(viewModel: quotesViewModel)) {
+                    NavigationLink(destination: FavoritesView(quotesViewModel: quotesViewModel)) {
                         menuItem(icon: "star.fill", title: "Favorites")
                     }
                     menuItem(icon: "flame", title: "Popular")

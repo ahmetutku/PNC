@@ -24,11 +24,15 @@ class QuotesViewModel: ObservableObject {
     }
 
     func toggleFavorite(_ quote: Quote) {
+        
         if let index = favoriteQuotes.firstIndex(of: quote) {
             favoriteQuotes.remove(at: index)
         } else {
             favoriteQuotes.append(quote)
         }
+        print(favoriteQuotes.count)
+        print(favoriteQuotes)
+
     }
 }
 

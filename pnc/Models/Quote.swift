@@ -10,6 +10,10 @@ struct Quote: Identifiable, Equatable {
     let id = UUID()
     let text: String
     let author: String
+    
+    static func == (lhs: Quote, rhs: Quote) -> Bool {
+           return lhs.text == rhs.text
+       }
 
     static let sampleQuotes: [Quote] = [
         Quote(text: "The only limit to our realization of tomorrow is our doubts of today.", author: "Franklin D. Roosevelt"),

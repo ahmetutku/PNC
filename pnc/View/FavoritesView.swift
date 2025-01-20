@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    @ObservedObject var viewModel: QuotesViewModel
+    @ObservedObject var quotesViewModel: QuotesViewModel
 
     var body: some View {
         ZStack{
             Color("background_color")
             VStack {
                 Spacer()
-                if(viewModel.favoriteQuotes.count == 0){
+                if(quotesViewModel.favoriteQuotes.count == 0){
                     Spacer()
                     //able to add the same quote twice fix it
                     Text("No Favorites available")
@@ -25,9 +25,9 @@ struct FavoritesView: View {
                 }
                 else{
                     ScrollView {
-                        ForEach(viewModel.favoriteQuotes) { quote in
-                            QuoteRowView(quote: quote, isFavorite: true) {
-                                viewModel.toggleFavorite(quote)
+                        ForEach(quotesViewModel.favoriteQuotes) { quote in
+                            QuoteRowView(quote: quote,                                    quotesViewModel: quotesViewModel, isFavorite: true) {
+                                quotesViewModel.toggleFavorite(quote)
                             }
                             .padding()
                         }

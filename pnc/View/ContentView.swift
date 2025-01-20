@@ -52,6 +52,7 @@ struct ContentView: View {
                             ForEach(quotesViewModel.quotes) { quote in
                                 QuoteRowView(
                                     quote: quote,
+                                    quotesViewModel: quotesViewModel,
                                     isFavorite: quotesViewModel.favoriteQuotes.contains(quote)
                                 ) {
                                     quotesViewModel.toggleFavorite(quote)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct QuoteView: View {
     let quote: Quote
-    @ObservedObject var viewModel: QuotesViewModel
+    @ObservedObject var quotesViewModel: QuotesViewModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -26,10 +26,11 @@ struct QuoteView: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    viewModel.toggleFavorite(quote)
+                    quotesViewModel.toggleFavorite(quote)
                 }) {
-                    Image(systemName: viewModel.favoriteQuotes.contains(quote) ? "star.fill" : "star")
-                        .foregroundColor(viewModel.favoriteQuotes.contains(quote) ? .yellow : .gray)
+                    Image(systemName: quotesViewModel.favoriteQuotes.contains(quote) ? "star.fill" : "star")
+                        .foregroundColor(quotesViewModel.favoriteQuotes.contains(quote) ? .yellow : .gray)
+                        
                 }
             }
         }

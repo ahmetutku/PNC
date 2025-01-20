@@ -8,8 +8,10 @@ import SwiftUI
 
 struct QuoteRowView: View {
     var quote: Quote
+    @ObservedObject var quotesViewModel: QuotesViewModel
     var isFavorite: Bool
     var toggleFavorite: () -> Void
+
 
     var body: some View {
         
@@ -27,7 +29,7 @@ struct QuoteRowView: View {
                 Spacer()
                 Button(action: toggleFavorite) {
                     Image(systemName: isFavorite ? "star.fill" : "star")
-                        .foregroundColor(isFavorite ? .yellow : .gray)
+                        .foregroundColor(quotesViewModel.favoriteQuotes.contains(quote) ? .yellow : .gray)
                 }
             }
         }
