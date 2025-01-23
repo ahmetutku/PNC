@@ -30,9 +30,6 @@ class QuotesViewModel: ObservableObject {
         } else {
             favoriteQuotes.append(quote)
         }
-        print(favoriteQuotes.count)
-        print(favoriteQuotes)
-
     }
 }
 
