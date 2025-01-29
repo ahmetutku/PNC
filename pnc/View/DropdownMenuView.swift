@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-// MARK: - Dropdown Menu View
 struct DropdownMenuView: View {
     @Binding var isMenuOpen: Bool
     @ObservedObject var quotesViewModel: QuotesViewModel
