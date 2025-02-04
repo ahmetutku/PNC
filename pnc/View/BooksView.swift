@@ -15,7 +15,7 @@ struct BooksView: View {
         ZStack{
             Color("background_color")
             VStack(spacing: 20) {
-                if bookRowModel.favoriteBooks.isEmpty { 
+                if bookRowModel.favoriteBooks.isEmpty {
                     Spacer()
                     Text("Favorited Books is Empty")
                         .foregroundColor(Color(.subtitle))
